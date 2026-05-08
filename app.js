@@ -48,6 +48,19 @@ app.use(hpp({
   ]
 }));
 
+// Respond with JSON if requested by Postman or API clients
+app.get('/', (req, res, next) => {
+  if (req.headers['user-agent'] && req.headers['user-agent'].includes('Postman') || req.headers.accept === 'application/json') {
+    return res.status(200).json({
+      status: "success",
+      message: "Local Marketplace API is running",
+      frontend: "https://localmarketplace-kinchasan.onrender.com",
+      documentation: "/api/v1/products"
+    });
+  }
+  next();
+});
+
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
 
