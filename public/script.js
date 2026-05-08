@@ -362,6 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
       filtered.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortValue === 'name-desc') {
       filtered.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortValue === 'top-3-cheapest') {
+      filtered.sort((a, b) => a.price - b.price);
+      filtered = filtered.slice(0, 3);
     }
     
     renderProducts(filtered);
