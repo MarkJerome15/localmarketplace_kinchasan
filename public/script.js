@@ -365,6 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (sortValue === 'top-3-cheapest') {
       filtered.sort((a, b) => a.price - b.price);
       filtered = filtered.slice(0, 3);
+    } else if (sortValue === 'top-3-expensive') {
+      filtered.sort((a, b) => b.price - a.price);
+      filtered = filtered.slice(0, 3);
     }
     
     renderProducts(filtered);
