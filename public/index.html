@@ -38,6 +38,16 @@
       <p class="glass-text-sub" id="greetingText">Find the best local items around you.</p>
     </header>
 
+    <div class="filter-controls" id="filterControls" style="display: none;">
+      <select id="sortSelect" class="glass-select">
+        <option value="default">Default Sorting</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A to Z</option>
+        <option value="name-desc">Name: Z to A</option>
+      </select>
+    </div>
+
     <div class="product-grid" id="productGrid">
       <div class="loader">
         <div class="spinner"></div>

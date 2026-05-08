@@ -172,7 +172,39 @@ body {
 
 /* Main Layout */
 .container { max-width: 1200px; margin: 0 auto; padding: 8rem 2rem 4rem 2rem; }
-.page-header { margin-bottom: 3rem; }
+.page-header { margin-bottom: 2rem; }
+
+/* Filter Controls */
+.filter-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.glass-select {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid var(--glass-border);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+
+.glass-select:focus, .glass-select:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--glass-highlight);
+}
+
+.glass-select option {
+  background: var(--bg-color);
+  color: white;
+}
 
 /* Product Grid */
 .product-grid {
