@@ -14,12 +14,12 @@ router
 
 router
   .route("/")
-  .get(productController.getAllProducts) // Unsecured GET all products for browsing
+  .get(authController.protect, productController.getAllProducts) // Secured GET all products
   .post(authController.protect, productController.createProduct);
 
 router
   .route("/:id")
-  .get(productController.getProduct)
+  .get(authController.protect, productController.getProduct)
   .patch(authController.protect, productController.updateProduct)
   .delete(
     authController.protect, 
