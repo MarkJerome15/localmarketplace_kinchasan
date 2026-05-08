@@ -1,0 +1,84 @@
+[
+  {
+    "name": "AMD Ryzen 5 5600X",
+    "price": 9500,
+    "category": "Processor",
+    "description": "6-core, 12-thread unlocked desktop processor.",
+    "postedDate": "2024-01-10",
+    "premiumProducts": false,
+    "priceDiscount": 8999
+  },
+  {
+    "name": "NVIDIA RTX 4070 Super",
+    "price": 38500,
+    "category": "Graphics Card",
+    "description": "High-performance GPU for 1440p gaming.",
+    "postedDate": "2024-02-15",
+    "premiumProducts": true
+  },
+  {
+    "name": "Corsair Vengeance LPX 16GB",
+    "price": 2800,
+    "category": "RAM",
+    "description": "DDR4 3200MHz high-speed memory kit.",
+    "postedDate": "2023-11-20",
+    "premiumProducts": false
+  },
+  {
+    "name": "Samsung 980 Pro 1TB",
+    "price": 5200,
+    "category": "Storage",
+    "description": "NVMe PCIe Gen4 M.2 Internal SSD.",
+    "postedDate": "2023-12-05",
+    "premiumProducts": true
+  },
+  {
+    "name": "ASUS ROG Strix B550-F",
+    "price": 11200,
+    "category": "Motherboard",
+    "description": "Gaming motherboard with PCIe 4.0 and WiFi 6.",
+    "postedDate": "2024-01-22",
+    "premiumProducts": false
+  },
+  {
+    "name": "NZXT H5 Flow Compact",
+    "price": 5400,
+    "category": "Case",
+    "description": "Mid-tower case with high-airflow perforated panels.",
+    "postedDate": "2023-10-18",
+    "premiumProducts": false
+  },
+  {
+    "name": "Logitech G Pro X Superlight",
+    "price": 6500,
+    "category": "Peripherals",
+    "description": "Ultra-lightweight wireless gaming mouse.",
+    "postedDate": "2024-03-01",
+    "premiumProducts": true
+  },
+  {
+    "name": "Cooler Master Hyper 212",
+    "price": 1850,
+    "category": "Cooling",
+    "description": "RGB air cooler with four heat pipes.",
+    "postedDate": "2023-09-12",
+    "premiumProducts": false,
+    "priceDiscount": 1500
+  },
+  {
+    "name": "Seasonic Focus GX-750",
+    "price": 6200,
+    "category": "Power Supply",
+    "description": "80+ Gold full modular power supply unit.",
+    "postedDate": "2023-11-30",
+    "premiumProducts": false
+  },
+  {
+    "name": "Keychron V1 Mechanical Keyboard",
+    "price": 4200,
+    "category": "Peripherals",
+    "description": "75% layout custom wired mechanical keyboard.",
+    "postedDate": "2024-02-10",
+    "premiumProducts": false
+  }
+]
