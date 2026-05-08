@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const productGrid = document.getElementById('productGrid');
   const searchInput = document.getElementById('searchInput');
   const authControls = document.getElementById('authControls');
+  const filterControls = document.getElementById('filterControls');
+  const sortSelect = document.getElementById('sortSelect');
   const greetingText = document.getElementById('greetingText');
   const toastEl = document.getElementById('toast');
 
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // -- RENDER AUTH UI --
   const updateAuthUI = () => {
     if (currentUser) {
+      filterControls.style.display = 'flex';
       greetingText.textContent = `Welcome back, ${currentUser.name}!`;
       authControls.innerHTML = `
         <button class="btn-primary" id="addBtn">Add Product</button>
@@ -61,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('addBtn').addEventListener('click', () => openProductForm());
       document.getElementById('logoutBtn').addEventListener('click', handleLogout);
     } else {
+      filterControls.style.display = 'none';
       greetingText.textContent = `Find the best local items around you.`;
       authControls.innerHTML = `
         <button class="btn-primary" id="loginBtn">Login / Sign Up</button>
@@ -173,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (data.status === 'success') {
         allProducts = data.data.products;
-        renderProducts(allProducts);
+        applyFiltersAndSort();
       } else {
         showToast('Failed to load products', 'error');
         renderProducts([]);
@@ -339,14 +343,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    const filtered = allProducts.filter(p => 
+  const applyFiltersAndSort = () => {
+    const term = searchInput.value.toLowerCase();
+    const sortValue = sortSelect.value;
+    
+    // Filter by search
+    let filtered = allProducts.filter(p => 
       p.name.toLowerCase().includes(term) || 
       (p.category && p.category.toLowerCase().includes(term))
     );
+    
+    // Sort
+    if (sortValue === 'price-asc') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'price-desc') {
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (sortValue === 'name-asc') {
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortValue === 'name-desc') {
+      filtered.sort((a, b) => b.name.localeCompare(a.name));
+    }
+    
     renderProducts(filtered);
-  });
+  };
+
+  searchInput.addEventListener('input', applyFiltersAndSort);
+  sortSelect.addEventListener('change', applyFiltersAndSort);
 
   function getIconForCategory(category) {
     const cat = category ? category.toLowerCase() : '';
